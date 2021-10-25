@@ -45,6 +45,8 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	}
 
+	public  function insereBanco(Produto $idProduto, $nameProduto,$descriptionProduto):array;
+
 
 
 
