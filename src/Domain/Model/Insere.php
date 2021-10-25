@@ -55,7 +55,7 @@ class Insere extends Teste
 
 	    if($insert->execute()){
 	    	
-	    	echo "inserido com sucesso";
+	    	echo "inserido com sucesso". "<br>";
 	    }
 		
 	}
