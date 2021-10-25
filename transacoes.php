@@ -13,6 +13,7 @@
 
 	$newInsertTest->retornaArray(7,'Danielle','Eu era inesperiente');
 	$newInsertTest->retornaArray(8,'Camila','Moça interassante e dança muito bem.');
+	$newInsertTest->retornaArray(9,'Fernanda','Inteligente e de olhos grandes e bonitos');
 
-	$connection->commit();
+	//$connection->commit();
 
