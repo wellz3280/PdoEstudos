@@ -13,13 +13,13 @@ class Produto
 
 	public function __construct(?int $idProduto, string $nameProduto,string $descriptionProduto)
 	{
-		$this->idTeste = $idProduto;
-		$this->nameTeste = $nameProduto;
-		$this->descriptionTeste = $descriptionProduto;
+		$this->idProduto = $idProduto;
+		$this->nameProduto = $nameProduto;
+		$this->descriptionProduto = $descriptionProduto;
 
 	}
 
-	public function id():int
+	public function id():?int
 	{
 	    return $this->idProduto;
 	}
