@@ -45,7 +45,39 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	}
 
-	public  function insereBanco(Produto $idProduto, $nameProduto,$descriptionProduto):array;
+	public  function insereBanco(Produto $produto):bool
+	{
+
+		$sql = "INSERT INTO testes 
+			(id,name,description) VALUES (?,?,?)
+		";
+
+		$insertSql = $this->connection->prepare($sql);
+
+		$produtoArray = [
+			1 =>
+			['dataBd'=> $produto->id()],
+			2 =>
+			['dataBd'=> $produto->name()],
+			3=>
+			['dataBd'=> $produto->description()]
+		];
+
+
+		foreach($produtoArray as $indice => $produtos){
+			
+			$insertSql->bindValue($indice,$produtos['dataBd']);
+		}
+
+		if($insertSql->execute() === false){
+			echo "opa Algo deu errado";
+			return false;
+		}else{
+			echo "iserido com sucesso";
+			return true;
+		}
+
+	}
 
 
 
