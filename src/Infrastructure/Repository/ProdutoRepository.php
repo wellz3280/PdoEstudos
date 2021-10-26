@@ -17,6 +17,8 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	
 	/** @var $idProduto @var $nameProduto @var $descriptionProduto **/
+	
+
 	public function showProduto():array
 	{
 		/**
@@ -26,7 +28,7 @@ class ProdutoRepository implements ProdutoRepositoryInter
 		 * description
 		 * */
 
-	   $sql = " SELECT * FROM testes";
+	   $sql = " SELECT * FROM produdo";
 		$statement = $this->connection->query($sql);
 
 		$result = $statement->fetchAll();
@@ -37,10 +39,8 @@ class ProdutoRepository implements ProdutoRepositoryInter
 					$dataProduto['name'],
 					$dataProduto['description']
 				);	
-		
-				
-			
 		}
+			
 			return $listaProduto;
 
 	}
@@ -48,7 +48,7 @@ class ProdutoRepository implements ProdutoRepositoryInter
 	public  function insereBanco(Produto $produto):bool
 	{
 
-		$sql = "INSERT INTO testes 
+		$sql = "INSERT INTO produdo 
 			(id,name,description) VALUES (?,?,?)
 		";
 

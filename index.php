@@ -19,8 +19,16 @@
 	$teste = new ProdutoRepository($pdo);
 
 	$repository = $teste->showProduto();
-	
 	echo "<pre>";
-	var_dump($repository);
+		var_dump($repository);
 	echo "</pre>";
+	
+	exit();
+	while($testelista = $teste->fetch(PDO::FETCH_ASSOC)){
+		$showList = new Produto(
+			$testelista['id'],
+			$testelista['name'],
+			$testelista['description']
+		);
+	}
 

@@ -15,9 +15,15 @@
 	//$newInsertTest->retornaArray(7,'Danielle','Eu era inesperiente');
 	//$newInsertTest->retornaArray(8,'Camila','Moça interassante e dança muito bem.');
 	$produto = new Produto(null,'Feijão super caro','Mano ta carooo');
+		$newInsertTest->insereBanco($produto);
 	
-	$newInsertTest->insereBanco($produto);
+	$produto2 = new Produto(null,'Arroz ponta de diamante','Ave maria caro é pouco');
+		$newInsertTest->insereBanco($produto2);
+	
+	$produto3 = new Produto(null,'Cerveja enjoada com aroma de manga','Se é louco muito caro');
+		$newInsertTest->insereBanco($produto3);
+	
 
-	$connection->commit();
+	//$connection->commit();
 
 	
