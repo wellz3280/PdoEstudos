@@ -9,9 +9,11 @@
 class ProdutoRepository implements ProdutoRepositoryInter
 {
 	private PDO $connection;
+	private string $tabela;
 
     public function __construct(PDO $connection)
     {
+    	
         $this->connection = $connection;
     }
 
@@ -19,7 +21,7 @@ class ProdutoRepository implements ProdutoRepositoryInter
 	/** @var $idProduto @var $nameProduto @var $descriptionProduto **/
 	
 
-	public function showProduto():array
+	public function showProduto(string $tabela):array
 	{
 		/**
 		 * campos da tabela testes
@@ -28,7 +30,7 @@ class ProdutoRepository implements ProdutoRepositoryInter
 		 * description
 		 * */
 
-	   $sql = " SELECT * FROM produdo";
+	   $sql = " SELECT * FROM {$tabela}";
 		$statement = $this->connection->query($sql);
 
 		$result = $statement->fetchAll();
@@ -45,8 +47,9 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	}
 
-	public  function insereBanco(Produto $produto):bool
-	{
+	public function insereBanco(Produto $produto):bool
+	{	
+
 
 		$sql = "INSERT INTO produdo 
 			(id,name,description) VALUES (?,?,?)
