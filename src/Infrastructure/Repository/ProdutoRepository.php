@@ -101,9 +101,26 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	}
 
-	public  function update(Produto $produto):bool
+	public  function update(Produto $produto, string $tabela):bool
 	{
-		
+		$sqlUpdate = "UPDATE {$tabela} SET name = :name, description = :description WHERE id = :id";
+
+		$update = $this->connection->prepare($sqlUpdate); 
+
+		$update->bindValue(':name',$produto->name());
+		$update->bindValue(':description',$produto->description());
+		$update->bindValue(':id',$produto->id(), PDO::PARAM_INT);
+
+		if($update->execute() === false){
+			echo "opa Algo deu erra ao";
+			return false;
+		}else{
+			echo "Alterado com sucesso";
+			return true;
+		}
+
+
+
 	}
 
 

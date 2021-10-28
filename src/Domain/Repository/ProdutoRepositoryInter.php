@@ -9,6 +9,6 @@ interface ProdutoRepositoryInter
 	public  function insereBanco(Produto $produto):bool;
 	public  function showProduto(string $tabela):array;
 	public  function remove(int $idProduto, string $tabela):bool;
-	public  function update(Produto $produto):bool;
+	public  function update(Produto $produto, string $tabela):bool;
 	
 }

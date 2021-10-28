@@ -10,11 +10,11 @@
 
 	$newInsertTest = new ProdutoRepository($connection);
 
-	//$connection->beginTransaction();
+	$connection->beginTransaction();
 
 	//$newInsertTest->retornaArray(7,'Danielle','Eu era inesperiente');
 	//$newInsertTest->retornaArray(8,'Camila','Moça interassante e dança muito bem.');
-	$produto = new Produto(null,'carne de Rã','Que absurdo é igual a frango');
+	$produto = new Produto(null,'Hamburgão do dan cheio de cebola enjoada ','Mais caro que salto de paraquedas');
 		$newInsertTest->insereBanco($produto);
 	
 	//$produto2 = new Produto(null,'Linguiça toscana de milão','Milão é logo ali rsrs');
@@ -24,6 +24,6 @@
 		//$newInsertTest->insereBanco($produto3);
 	
 
-	//$connection->commit();
+	$connection->commit();
 
 	
