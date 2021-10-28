@@ -10,11 +10,13 @@ class ProdutoRepository implements ProdutoRepositoryInter
 {
 	private PDO $connection;
 	private string $tabela;
+	private int $idProduto;
 
     public function __construct(PDO $connection)
     {
     	
         $this->connection = $connection;
+
     }
 
 	
@@ -23,7 +25,7 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	public function showProduto(string $tabela):array
 	{
-		/**
+		/**array
 		 * campos da tabela testes
 		 * id
 		 * name
@@ -82,6 +84,27 @@ class ProdutoRepository implements ProdutoRepositoryInter
 
 	}
 
+	public function remove(int $idProduto, string $tabela):bool
+	{
+		$sql = "DELETE FROM {$tabela} WHERE id = ?;";
+
+		$delete = $this->connection->prepare($sql);
+		$delete->bindValue(1,$idProduto, PDO::PARAM_INT);
+
+		if($delete->execute() === false){
+			echo "opa Algo deu erra ao";
+			return false;
+		}else{
+			echo "deletado com sucesso";
+			return true;
+		}
+
+	}
+
+	public  function update(Produto $produto):bool
+	{
+		
+	}
 
 
 
