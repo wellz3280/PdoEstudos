@@ -16,25 +16,28 @@
 	 **/
 	
 
-	//$teste = new ProdutoRepository($pdo);
+	$teste = new ProdutoRepository($pdo);
+		$tabela = "produdo";
 
-	//$tabela = "produdo";
 
-	$produto = new Produto(12,'pocisão 1','pocisão 2');
-	$array = [$produto->id(),$produto->name(),$produto->description()];
+		
+			$teste->remove(7,$tabela);
+
+	//$produto = new Produto(12,'pocisão 1','pocisão 2');
+	//$array = [$produto->id(),$produto->name(),$produto->description()];
 	//var_dump($produto);
 
 	//echo implode(',',array_fill(0, count($array), '?'));
 		
 
 
-	exit();
 	$repository = $teste->showProduto($tabela);
 	echo "<pre>";
 		var_dump($repository);
 	echo "</pre>";
 	
-	while($testelista = $teste->fetch(PDO::FETCH_ASSOC)){
+	exit();
+	while($testelista = $teste->fetch()){
 		$showList = new Produto(
 			$testelista['id'],
 			$testelista['name'],
